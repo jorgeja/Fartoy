@@ -50,3 +50,9 @@ legend('Measured Yaw Rate, r_{noise}', 'Actual Yaw Rate, r', 'Estimated Yaw Rate
 xlabel('time(s)');
 ylabel('Yaw rate angle (rads)')
 grid on
+
+%State Estimate Covariance Matrix
+figure(6)
+plot(simout.Time(1:100),EstimateCovariance.Data(:,1:100),'linewidth',1);
+xlabel('time(s)');
+grid on

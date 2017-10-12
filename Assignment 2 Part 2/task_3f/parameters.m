@@ -26,14 +26,14 @@ D = zeros(3,1);
 phi_noisePower = (2/180)^2;
 p_noisePower = (0.5/180)^2;
 r_noisePower = (0.2/180)^2;
+beta0_variance = (2*pi/180)^2;
 phi_variance = (2*pi/180)^2;
 p_variance = (0.5*pi/180)^2;
 r_variance = (0.2*pi/180)^2;
 
-Q = [10^-6, 10^-6, 10^-6, 10^-6];
-Q = diag(Q);
+Q = diag([10^-6, 10^-6, 10^-6, 10^-6]);
 R = [r_variance, p_variance, phi_variance];
 R = diag(R);
 R_inv = inv(R);
 E = eye(4);
-P0 = zeros(4,4);
+P0 = diag([beta0_variance phi_variance p_variance r_variance]);
