@@ -2,11 +2,8 @@ clear all
 close all
 
 parameters
-sim('task_2f_simulink_copy.slx');
-t_e = tout;
-s_e = simout;
 
-sim('task_2g_simulink.slx')
+sim('task_3e.slx')
 
 % Course 
 figure(1)
