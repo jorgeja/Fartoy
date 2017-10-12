@@ -1,0 +1,17 @@
+clear all
+close all
+
+parameters
+
+sim('task_2f.slx')
+
+% Course 
+plot(tout(:),simout.Data(:,6),tout(:),simout.Data(:,7));
+legend('Course \chi','Course Set Point \chi_c');
+grid on
+
+%Measurements
+
+plot(simout.Data(:,2:5));
+legend('r','p','\betaæ);
+grid on

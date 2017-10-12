@@ -1,0 +1,26 @@
+close all
+clear all
+a1 = 2.87;
+a2 = -0.65;
+Kp_phi = -5/3;
+Kp_chi = 18.77;
+Ki_chi = 0.1954;
+Vg = 637/3.6; %Ground speed, m/s
+
+
+G1 = tf([Kp_phi*a2],[1 a1 0]);
+G2 = tf([1/Vg*a2*Kp_phi*Kp_chi 1/Vg*a2*Kp_phi*Ki_chi],[1 a1 0 0 0]);
+bode(G1, G2);
+legend('\phi/\phi_c(s)','\chi/\chi_{c}(s)')
+grid on
+
+figure
+Kp_chi = 18.77*10;
+Ki_chi = 0.1954*100;
+
+G3 = tf([Kp_phi*a2],[1 a1 0]);
+G4 = tf([1/Vg*a2*Kp_phi*Kp_chi 1/Vg*a2*Kp_phi*Ki_chi],[1 a1 0 0 0]);
+bode(G3, G4);
+legend('\phi/\phi_c(s)','\chi/\chi_{c}(s)')
+grid on
+title('Bode Diagram, \omega_{\phi} = \omega_{\chi}')

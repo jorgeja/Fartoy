@@ -1,0 +1,16 @@
+Yv = -0.322;
+Nr = -0.32;
+YrNv = -7.6944;
+
+l1 = (Yv + Nr)/2 + sqrt((Yv + Nr)^2/4 - Yv*Nr + YrNv);
+l2 = (Yv + Nr)/2 - sqrt((Yv + Nr)^2/4 - Yv*Nr + YrNv);
+
+wn_dr = sqrt((l2^2*l1 - l1^2*l2)/(l2-l1));
+seta_n_dr = -(l1^2+wn_dr^2)/(2*wn_dr*l1);
+seta_n_dr_2 = -(l2^2+wn_dr^2)/(2*wn_dr*l2);
+
+Lvcb = -10.6;
+Nvcb = 6.87;
+Lr = 0.46;
+
+l_spiral = (Nr*Lvcb - Nvcb*Lr)/(Lvcb);
