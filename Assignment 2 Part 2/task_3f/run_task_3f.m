@@ -3,7 +3,7 @@ close all
 
 parameters
 
-sim('task_3e.slx')
+sim('task_3f.slx')
 
 % Course 
 figure(1)
