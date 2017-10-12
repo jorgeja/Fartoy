@@ -11,7 +11,7 @@ plot(simout.Time,simout.Data(:,1),simout.Time,simout.Data(:,2),'linewidth', 2);
 legend('Course Set Point \chi_c', 'Course \chi');
 title('Course vs Course Set Point');
 xlabel('time(s)');
-ylabel('\chi, Course angle (rads)')
+ylabel('Course angle (rads)')
 grid on
 
 %Aileron input
@@ -31,7 +31,7 @@ plot(simout.Time,simout.Data(:,6),simout.Time,simout.Data(:,11),'linewidth',2);
 legend('Roll w Noise \phi_{noise}','Roll \phi','Roll Estimated \phi_e');
 title('Roll Angles');
 xlabel('time(s)');
-ylabel('\chi, Roll angle (rads)')
+ylabel('Roll angle (rads)')
 grid on
 
 %Roll rate
@@ -42,15 +42,16 @@ plot(simout.Time,simout.Data(:,5),simout.Time,simout.Data(:,12),'linewidth', 2);
 legend('Roll Rate w Noise p_{noise}', 'Roll Rate p', 'Roll Rate Estimated p_{e}');
 title('Roll Rate Angles');
 xlabel('time(s)');
-ylabel('\chi, Roll angle (rads)')
+ylabel('Roll rate angle (rads)')
 grid on
 
-%Measurements
-% figure(2)
-% hold on
-% plot(simout.Time(10:110),simout.Data(10:110,1:5), 'linewidth', 1);
-% legend('\delta_c','r','p','\beta','\phi');
-% grid on
-% title('State dynamics for one course change manouvre');
-% xlabel('sec');
-% ylabel('rad, rad/sec');
+%Yaw rate
+figure(5)
+plot(simout.Time,simout.Data(:,7),'linewidth',1);
+hold on
+plot(simout.Time,simout.Data(:,4),simout.Time,simout.Data(:,13),'linewidth', 2);
+legend('Yaw Rate w Noise r_{noise}', 'Yaw Rate r', 'Yaw Rate Estimated r_{e}');
+title('Yaw Rate Angles');
+xlabel('time(s)');
+ylabel('Yaw rate angle (rads)')
+grid on
