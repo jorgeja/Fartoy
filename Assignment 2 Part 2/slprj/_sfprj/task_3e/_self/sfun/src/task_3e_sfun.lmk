@@ -1,0 +1,39 @@
+CC     = "C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\bin\lcc.exe"
+LD     = "C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\bin\lcclnk.exe"
+LIBCMD = "C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\bin\lcclib.exe"
+CFLAGS = -c -Zp8 -DMATLAB_MEX_FILE -noregistrylookup 
+LDFLAGS = -s -dll -L"C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\lib" 
+LIBFLAGS = 
+
+OBJECTS = \
+	"task_3e_sfun.obj"\
+	"c2_task_3e.obj"\
+	"task_3e_sfun_registry.obj"\
+	"lccstub.obj"\
+	"C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\mex\lccdef.def"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\sf_runtime.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmwblas.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmx.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmex.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmat.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libfixedpoint.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libut.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmwmathutil.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libemlrt.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\extern\lib\win32\lcc\libmwsimulink.lib"\
+	"C:\Program Files (x86)\MATLAB\R2014b\lib\win32\libmwipp.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\include"  -I"C:\Program Files (x86)\MATLAB\R2014b\extern\include"  -I"C:\Program Files (x86)\MATLAB\R2014b\simulink\include"  -I"C:\Program Files (x86)\MATLAB\R2014b\stateflow\c\mex\include"  -I"C:\Program Files (x86)\MATLAB\R2014b\rtw\c\src"  -I"C:\Users\Ultrawack\Documents\Fartøy\Fartoy\Assignment 2 Part 2\slprj\_sfprj\task_3e\_self\sfun\src" 
+ 
+
+task_3e_sfun.mexw32 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o task_3e_sfun.mexw32 @task_3e_sfun.lmko
+task_3e_sfun.obj :	"task_3e_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "task_3e_sfun.c"
+c2_task_3e.obj :	"c2_task_3e.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_task_3e.c"
+task_3e_sfun_registry.obj :	"task_3e_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "task_3e_sfun_registry.c"
+lccstub.obj :	"C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files (x86)\MATLAB\R2014b\sys\lcc\mex\lccstub.c"

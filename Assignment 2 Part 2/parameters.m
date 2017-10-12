@@ -23,13 +23,17 @@ C = [0 0 0 1;
 
 D = zeros(3,1);
 
-phi_variance = 2^2*pi/180;
-p_variance = 0.5^2*pi/180;
-r_variance = 0.2^2*pi/180;
+phi_noisePower = (2/180)^2;
+p_noisePower = (0.5/180)^2;
+r_noisePower = (0.2/180)^2;
+phi_variance = (2*pi/180)^2;
+p_variance = (0.5*pi/180)^2;
+r_variance = (0.2*pi/180)^2;
 
 Q = [10^-6, 10^-6, 10^-6, 10^-6];
 Q = diag(Q);
 R = [r_variance, p_variance, phi_variance];
 R = diag(R);
+R_inv = inv(R);
 E = eye(4);
 P0 = zeros(4,4);
